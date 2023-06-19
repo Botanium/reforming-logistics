@@ -1,0 +1,7 @@
+.DS_Store
+*.pyc
+*.egg-info
+*.swp
+tags
+oil_gas_logistics/docs/current
+node_modules/
