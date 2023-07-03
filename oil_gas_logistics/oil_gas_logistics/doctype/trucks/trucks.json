@@ -1,0 +1,92 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:{plate_number}-{driver_name}",
+ "creation": "2023-06-19 11:33:25.493761",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "plate_number",
+  "driver_name",
+  "driver_name_kurdish",
+  "city",
+  "transportation_company",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "plate_number",
+   "fieldtype": "Data",
+   "label": "Plate Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "driver_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Driver Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "City",
+   "options": "\nSulaimani\nErbil\nKirkuk\nDuhok\nBaghdad",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transportation_company",
+   "fieldtype": "Data",
+   "label": "Transportation Company"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Trucks",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "driver_name_kurdish",
+   "fieldtype": "Data",
+   "label": "Driver Name - Kurdish",
+   "reqd": 1,
+   "translatable": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-07-03 11:17:11.898533",
+ "modified_by": "Administrator",
+ "module": "Oil Gas Logistics",
+ "name": "Trucks",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

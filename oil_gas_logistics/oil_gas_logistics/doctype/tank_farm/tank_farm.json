@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:{tank_farm_name}",
+ "creation": "2023-06-19 11:44:58.803972",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tank_farm_name",
+  "owner1",
+  "tank_farm_detils",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "tank_farm_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tank Farm Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "owner1",
+   "fieldtype": "Data",
+   "label": "Owner"
+  },
+  {
+   "fieldname": "tank_farm_detils",
+   "fieldtype": "Table",
+   "label": "Tank Farm Detils",
+   "options": "Tank Farm Details"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Tank Farm",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-06-19 11:45:16.150645",
+ "modified_by": "Administrator",
+ "module": "Oil Gas Logistics",
+ "name": "Tank Farm",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

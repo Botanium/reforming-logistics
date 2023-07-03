@@ -1,0 +1,43 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-06-19 11:43:13.328166",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tank_name",
+  "tank_size"
+ ],
+ "fields": [
+  {
+   "fieldname": "tank_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tank Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tank_size",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tank Size",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-06-19 11:43:13.328166",
+ "modified_by": "Administrator",
+ "module": "Oil Gas Logistics",
+ "name": "Tank Farm Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

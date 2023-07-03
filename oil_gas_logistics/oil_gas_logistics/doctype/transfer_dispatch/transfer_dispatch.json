@@ -1,0 +1,114 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format: PDT-{YYYY}.-{#####}",
+ "creation": "2023-06-21 12:55:14.254463",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "loading_location",
+  "unloading_location",
+  "section_break_section",
+  "transfer_dispatch_details",
+  "total",
+  "column_br_totl_qty",
+  "total_qty",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "loading_location",
+   "fieldtype": "Link",
+   "label": "Loading Location",
+   "options": "Tank Farm"
+  },
+  {
+   "fieldname": "unloading_location",
+   "fieldtype": "Link",
+   "label": "Unloading Location",
+   "options": "Tank Farm"
+  },
+  {
+   "fieldname": "section_break_section",
+   "fieldtype": "Section Break",
+   "label": "Section Break"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Data",
+   "label": "Total"
+  },
+  {
+   "fieldname": "column_br_totl_qty",
+   "fieldtype": "Column Break",
+   "label": "Colum Break total qty"
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Currency",
+   "label": "Total Quantity"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Transfer Dispatch",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Transfer Dispatch",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "transfer_dispatch_details",
+   "fieldtype": "Table",
+   "label": "Transfer Dispatch Details",
+   "options": "Transfer Dispatch Details"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-06-22 13:40:57.186160",
+ "modified_by": "Administrator",
+ "module": "Oil Gas Logistics",
+ "name": "Transfer Dispatch",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

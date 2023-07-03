@@ -1,0 +1,175 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:LUD-{YYYY}-#####",
+ "creation": "2023-06-22 10:31:02.773154",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "truck",
+  "entry_date_and_time",
+  "plom_no",
+  "column_break_5gxtg",
+  "wb_id",
+  "exit_date_and_time",
+  "column_break_mhfu4",
+  "product_net_weight",
+  "density",
+  "column_break_wymt7",
+  "product",
+  "loading_location",
+  "unloading_location",
+  "remarks_section",
+  "remarks",
+  "truck_weight",
+  "total_weight_of_truck_and_product",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "truck",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Truck",
+   "options": "Trucks",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "product_net_weight",
+   "fieldtype": "Float",
+   "label": "Product Net Weight",
+   "reqd": 1
+  },
+  {
+   "fieldname": "density",
+   "fieldtype": "Float",
+   "label": "Density",
+   "reqd": 1
+  },
+  {
+   "fieldname": "plom_no",
+   "fieldtype": "Data",
+   "label": "Plom Number"
+  },
+  {
+   "fieldname": "entry_date_and_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Entry Date and Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "exit_date_and_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Exit Date and Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "product",
+   "fieldtype": "Link",
+   "label": "Product",
+   "options": "Oil Products",
+   "reqd": 1
+  },
+  {
+   "fieldname": "wb_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "WB ID",
+   "reqd": 1
+  },
+  {
+   "default": "Fox Reforming",
+   "fieldname": "loading_location",
+   "fieldtype": "Data",
+   "label": "Loading Location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unloading_location",
+   "fieldtype": "Link",
+   "label": "Unloading Location",
+   "options": "Tank Farm",
+   "reqd": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text Editor",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "truck_weight",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Truck Weight"
+  },
+  {
+   "fieldname": "total_weight_of_truck_and_product",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Total weight of Truck and Product"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Loading Unloading Dispatch",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5gxtg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_mhfu4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wymt7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remarks_section",
+   "fieldtype": "Section Break",
+   "label": "Remarks"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-07-03 11:51:10.304052",
+ "modified_by": "Administrator",
+ "module": "Oil Gas Logistics",
+ "name": "Loading Unloading Dispatch",
+ "name_case": "UPPER CASE",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_name_in_global_search": 1,
+ "show_preview_popup": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

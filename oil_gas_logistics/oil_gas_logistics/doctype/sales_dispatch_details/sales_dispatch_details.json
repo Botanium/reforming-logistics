@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-06-19 13:25:21.035657",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "loading_unloading_dispatch",
+  "truck",
+  "product",
+  "density",
+  "qty",
+  "qty_in_liters",
+  "loading_time",
+  "bill_no",
+  "transportation_price",
+  "price",
+  "amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "truck",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Truck",
+   "options": "Trucks",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "loading_unloading_dispatch.product",
+   "fieldname": "product",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Product",
+   "options": "Oil Products",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "loading_unloading_dispatch.product_net_weight",
+   "fieldname": "qty",
+   "fieldtype": "Data",
+   "label": "Qty",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "loading_unloading_dispatch.entry_date_and_time",
+   "fieldname": "loading_time",
+   "fieldtype": "Time",
+   "label": "Loading Time"
+  },
+  {
+   "fieldname": "bill_no",
+   "fieldtype": "Data",
+   "label": "Bill No."
+  },
+  {
+   "fieldname": "loading_unloading_dispatch",
+   "fieldtype": "Link",
+   "label": "Loading Unloading Dispatch",
+   "options": "Loading Unloading Dispatch"
+  },
+  {
+   "fieldname": "qty_in_liters",
+   "fieldtype": "Float",
+   "label": "Qty in Liters",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "transportation_price",
+   "fieldtype": "Currency",
+   "label": "Transportation Price"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Price"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount"
+  },
+  {
+   "fetch_from": "loading_unloading_dispatch.density",
+   "fieldname": "density",
+   "fieldtype": "Data",
+   "label": "Density"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-06-26 14:22:22.313185",
+ "modified_by": "Administrator",
+ "module": "Oil Gas Logistics",
+ "name": "Sales Dispatch Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
