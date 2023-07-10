@@ -35,7 +35,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "City",
-   "options": "\nSulaimani\nErbil\nKirkuk\nDuhok\nBaghdad",
+   "options": "\nSulaimani\\21\nErbil\\22\nKirkuk\nDuhok\nBaghdad",
    "reqd": 1
   },
   {
@@ -55,15 +55,15 @@
   {
    "fieldname": "driver_name_kurdish",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Driver Name - Kurdish",
-   "reqd": 1,
    "translatable": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-07-03 11:17:11.898533",
+ "modified": "2023-07-06 14:55:11.882168",
  "modified_by": "Administrator",
  "module": "Oil Gas Logistics",
  "name": "Trucks",
