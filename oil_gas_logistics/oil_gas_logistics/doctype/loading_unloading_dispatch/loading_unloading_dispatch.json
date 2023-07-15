@@ -2,7 +2,6 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:{wb_id}-{unloading_location}",
  "creation": "2023-06-22 10:31:02.773154",
  "default_view": "List",
  "doctype": "DocType",
@@ -10,6 +9,8 @@
  "engine": "InnoDB",
  "field_order": [
   "amended_from",
+  "transaction_type",
+  "cmr",
   "wb_id",
   "product",
   "loading_location",
@@ -162,15 +163,29 @@
    "fieldtype": "Time",
    "label": "Exit Time",
    "reqd": 1
+  },
+  {
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Transaction Type",
+   "options": "\nIN\nOUT\nTRANSFER",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cmr",
+   "fieldtype": "Data",
+   "label": "CMR",
+   "reqd": 1
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2023-07-10 12:02:52.168270",
+ "modified": "2023-07-15 12:44:04.065650",
  "modified_by": "Administrator",
  "module": "Oil Gas Logistics",
  "name": "Loading Unloading Dispatch",
- "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
