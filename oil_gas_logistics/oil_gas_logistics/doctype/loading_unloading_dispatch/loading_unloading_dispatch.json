@@ -177,12 +177,13 @@
    "fieldname": "cmr",
    "fieldtype": "Data",
    "label": "CMR",
-   "mandatory_depends_on": "doc.transaction_type === 'IN'"
+   "mandatory_depends_on": "doc.transaction_type === 'IN'",
+   "read_only_depends_on": "doc.transaction_type === 'OUT'"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2023-07-15 15:13:43.241572",
+ "modified": "2023-07-16 15:56:18.139677",
  "modified_by": "Administrator",
  "module": "Oil Gas Logistics",
  "name": "Loading Unloading Dispatch",

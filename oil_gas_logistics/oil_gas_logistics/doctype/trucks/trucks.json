@@ -14,6 +14,7 @@
   "driver_name_kurdish",
   "city",
   "transportation_company",
+  "phone_number",
   "amended_from"
  ],
  "fields": [
@@ -58,12 +59,17 @@
    "hidden": 1,
    "label": "Driver Name - Kurdish",
    "translatable": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Phone",
+   "label": "Phone Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-07-06 14:55:11.882168",
+ "modified": "2023-07-17 12:11:45.087942",
  "modified_by": "Administrator",
  "module": "Oil Gas Logistics",
  "name": "Trucks",
