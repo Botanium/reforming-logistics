@@ -25,6 +25,8 @@
   "exit_date_and_time",
   "column_break_mhfu4",
   "product_net_weight",
+  "kirkuk_net_weight",
+  "difference_in_weight",
   "density",
   "plom_no",
   "remarks_section",
@@ -176,14 +178,22 @@
   {
    "fieldname": "cmr",
    "fieldtype": "Data",
-   "label": "CMR",
-   "mandatory_depends_on": "doc.transaction_type === 'IN'",
-   "read_only_depends_on": "doc.transaction_type === 'OUT'"
+   "label": "CMR"
+  },
+  {
+   "fieldname": "kirkuk_net_weight",
+   "fieldtype": "Float",
+   "label": "Kirkuk Net Weight"
+  },
+  {
+   "fieldname": "difference_in_weight",
+   "fieldtype": "Float",
+   "label": "Difference in Weight"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2023-07-16 15:56:18.139677",
+ "modified": "2023-07-18 10:48:26.611479",
  "modified_by": "Administrator",
  "module": "Oil Gas Logistics",
  "name": "Loading Unloading Dispatch",
