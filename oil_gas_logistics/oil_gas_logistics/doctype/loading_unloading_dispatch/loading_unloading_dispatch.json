@@ -107,6 +107,13 @@
    "reqd": 1
   },
   {
+    "fieldname": "loading_location",
+    "fieldtype": "Link",
+    "label": "Loading Location",
+    "options": "Tank Farm",
+    "reqd": 1
+   },
+  {
    "fieldname": "unloading_location",
    "fieldtype": "Link",
    "label": "Unloading Location",
