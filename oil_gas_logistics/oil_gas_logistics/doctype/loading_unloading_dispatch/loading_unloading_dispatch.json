@@ -100,8 +100,9 @@
    "unique": 1
   },
   {
+    "default": "Fox Reforming",
    "fieldname": "loading_location",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Loading Location",
    "reqd": 1
   },
