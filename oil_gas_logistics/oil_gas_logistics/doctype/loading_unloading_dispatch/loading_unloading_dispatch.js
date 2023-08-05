@@ -49,6 +49,26 @@ function calculate_destination_weight_in_meters(frm) {
     frm.refresh_field('destination_weight_in_meters');
 }
 
+// // Function to calculate weight in meters
+// function calculate_weight_in_meters(frm) {
+//     const product_net_weight = parseFloat(frm.doc.product_net_weight) || 0;
+//     const suli_standard_density = parseFloat(frm.doc.suli_standard_density) || 0;
+//     const weight_in_meters = (product_net_weight / 1000) / suli_standard_density;
+
+//     frm.set_value('weight_in_meters', weight_in_meters);
+//     frm.refresh_field('weight_in_meters');
+// }
+
+// // Function to calculate normal weight in meters
+// function calculate_normal_weight_in_meters(frm) {
+//     const product_net_weight = parseFloat(frm.doc.product_net_weight) || 0;
+//     const density = parseFloat(frm.doc.density) || 0;
+//     const normal_weight_in_meters = (product_net_weight / 1000) / density;
+
+//     frm.set_value('normal_weight_in_meters', normal_weight_in_meters);
+//     frm.refresh_field('normal_weight_in_meters');
+// }
+
 // Function to calculate weight in meters
 function calculate_weight_in_meters(frm) {
     const product_net_weight = parseFloat(frm.doc.product_net_weight) || 0;
@@ -68,6 +88,7 @@ function calculate_normal_weight_in_meters(frm) {
     frm.set_value('normal_weight_in_meters', normal_weight_in_meters);
     frm.refresh_field('normal_weight_in_meters');
 }
+
 
 // Function to toggle Kirkuk detail section visibility
 function toggle_kirkuk_detail_section(frm) {
