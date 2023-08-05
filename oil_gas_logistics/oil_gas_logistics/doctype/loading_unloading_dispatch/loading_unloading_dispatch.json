@@ -27,15 +27,18 @@
   "destination_weight_in_tonne",
   "destination_weight_in_meters",
   "difference_in_weight",
+  "kirkuk_exit_date",
   "fox_detail_section_section",
   "wb_id",
   "cmr",
   "product_net_weight",
   "net_weight_in_tonne",
-  "weight_in_meters",
-  "column_break_2odwi",
   "density",
+  "normal_weight_in_meters",
+  "kirkuk_plom_number",
+  "column_break_2odwi",
   "suli_standard_density",
+  "weight_in_meters",
   "entry_date",
   "entry_time",
   "exit_date",
@@ -189,7 +192,8 @@
   {
    "fieldname": "kirkuk_net_weight",
    "fieldtype": "Float",
-   "label": "Destination Net Weight"
+   "label": "Destination Net Weight",
+   "reqd": 1
   },
   {
    "bold": 1,
@@ -211,7 +215,8 @@
   {
    "fieldname": "destination_cmr",
    "fieldtype": "Data",
-   "label": "Destination CMR"
+   "label": "Destination CMR",
+   "reqd": 1
   },
   {
    "fieldname": "destination_weight_in_tonne",
@@ -230,7 +235,7 @@
   },
   {
    "fieldname": "weight_in_meters",
-   "fieldtype": "Data",
+   "fieldtype": "Float",
    "label": "Weight in Meters"
   },
   {
@@ -246,12 +251,27 @@
    "fieldname": "suli_standard_density",
    "fieldtype": "Float",
    "label": "Suli Standard Density"
+  },
+  {
+   "fieldname": "normal_weight_in_meters",
+   "fieldtype": "Float",
+   "label": "Normal Weight In Meters"
+  },
+  {
+   "fieldname": "kirkuk_exit_date",
+   "fieldtype": "Date",
+   "label": "Kirkuk Exit Date"
+  },
+  {
+   "fieldname": "kirkuk_plom_number",
+   "fieldtype": "Data",
+   "label": "Kirkuk Plom Number"
   }
  ],
  "is_submittable": 1,
  "links": [],
  "make_attachments_public": 1,
- "modified": "2023-07-29 11:00:44.154123",
+ "modified": "2023-08-05 11:03:10.213546",
  "modified_by": "Administrator",
  "module": "Oil Gas Logistics",
  "name": "Loading Unloading Dispatch",
