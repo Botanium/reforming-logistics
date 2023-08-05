@@ -235,7 +235,7 @@
   },
   {
    "fieldname": "weight_in_meters",
-   "fieldtype": "Float",
+   "fieldtype": "Data",
    "label": "Weight in Meters"
   },
   {
@@ -271,7 +271,7 @@
  "is_submittable": 1,
  "links": [],
  "make_attachments_public": 1,
- "modified": "2023-08-05 11:03:10.213546",
+ "modified": "2023-08-05 11:43:28.584363",
  "modified_by": "Administrator",
  "module": "Oil Gas Logistics",
  "name": "Loading Unloading Dispatch",
