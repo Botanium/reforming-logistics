@@ -235,7 +235,7 @@
   },
   {
    "fieldname": "weight_in_meters",
-   "fieldtype": "Float",
+   "fieldtype": "Data",
    "label": "Standard Weight in Meters"
   },
   {
