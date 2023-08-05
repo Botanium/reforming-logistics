@@ -75,7 +75,8 @@ function calculate_weight_in_meters(frm) {
     const suli_standard_density = parseFloat(frm.doc.suli_standard_density) || 0;
     const weight_in_meters = (product_net_weight / 1000) / suli_standard_density;
 
-    frm.set_value('weight_in_meters', weight_in_meters);
+    // Convert the result to a string before setting the value
+    frm.set_value('weight_in_meters', weight_in_meters.toString());
     frm.refresh_field('weight_in_meters');
 }
 
@@ -85,9 +86,11 @@ function calculate_normal_weight_in_meters(frm) {
     const density = parseFloat(frm.doc.density) || 0;
     const normal_weight_in_meters = (product_net_weight / 1000) / density;
 
-    frm.set_value('normal_weight_in_meters', normal_weight_in_meters);
+    // Convert the result to a string before setting the value
+    frm.set_value('normal_weight_in_meters', normal_weight_in_meters.toString());
     frm.refresh_field('normal_weight_in_meters');
 }
+
 
 
 // Function to toggle Kirkuk detail section visibility
