@@ -49,36 +49,35 @@ function calculate_destination_weight_in_meters(frm) {
     frm.refresh_field('destination_weight_in_meters');
 }
 
+
+
 // // Function to calculate weight in meters
 // function calculate_weight_in_meters(frm) {
 //     const product_net_weight = parseFloat(frm.doc.product_net_weight) || 0;
 //     const suli_standard_density = parseFloat(frm.doc.suli_standard_density) || 0;
 //     const weight_in_meters = (product_net_weight / 1000) / suli_standard_density;
 
-//     frm.set_value('weight_in_meters', weight_in_meters);
+//     // Convert the result to a string before setting the value
+//     frm.set_value('weight_in_meters', weight_in_meters.toString());
 //     frm.refresh_field('weight_in_meters');
-// }
-
-// // Function to calculate normal weight in meters
-// function calculate_normal_weight_in_meters(frm) {
-//     const product_net_weight = parseFloat(frm.doc.product_net_weight) || 0;
-//     const density = parseFloat(frm.doc.density) || 0;
-//     const normal_weight_in_meters = (product_net_weight / 1000) / density;
-
-//     frm.set_value('normal_weight_in_meters', normal_weight_in_meters);
-//     frm.refresh_field('normal_weight_in_meters');
 // }
 
 // Function to calculate weight in meters
 function calculate_weight_in_meters(frm) {
     const product_net_weight = parseFloat(frm.doc.product_net_weight) || 0;
     const suli_standard_density = parseFloat(frm.doc.suli_standard_density) || 0;
-    const weight_in_meters = (product_net_weight / 1000) / suli_standard_density;
 
-    // Convert the result to a string before setting the value
+    let weight_in_meters;
+    if (suli_standard_density !== 0) {
+        weight_in_meters = (product_net_weight / 1000) / suli_standard_density;
+    } else {
+        weight_in_meters = 0; // or null, or an error message
+    }
+
     frm.set_value('weight_in_meters', weight_in_meters.toString());
     frm.refresh_field('weight_in_meters');
 }
+
 
 // Function to calculate normal weight in meters
 function calculate_normal_weight_in_meters(frm) {
@@ -93,16 +92,45 @@ function calculate_normal_weight_in_meters(frm) {
 
 
 
-// Function to toggle Kirkuk detail section visibility
+// // Function to toggle Kirkuk detail section visibility
+// function toggle_kirkuk_detail_section(frm) {
+//     const transactionType = frm.doc.transaction_type;
+
+//     if (transactionType === IN_TRANSACTION_TYPE) {
+//         cur_frm.toggle_display('kirkuk_detail_section_section', true);
+//     } else {
+//         cur_frm.toggle_display('kirkuk_detail_section_section', false);
+//     }
+// }
+
+// Function to toggle Kirkuk detail section visibility, field read-only status, and mandatory status
 function toggle_kirkuk_detail_section(frm) {
     const transactionType = frm.doc.transaction_type;
+    const fieldsToDisable = [
+        'destination_cmr',
+        'kirkuk_net_weight',
+        'kirkuk_standard_density',
+        'destination_weight_in_tonne',
+        'destination_weight_in_meters',
+        'difference_in_weight',
+        'kirkuk_exit_date',
+        'kirkuk_plom_number'
+    ];
 
-    if (transactionType === IN_TRANSACTION_TYPE) {
-        cur_frm.toggle_display('kirkuk_detail_section_section', true);
-    } else {
-        cur_frm.toggle_display('kirkuk_detail_section_section', false);
-    }
+    // Toggle the display of the section
+    cur_frm.toggle_display('kirkuk_detail_section_section', transactionType === IN_TRANSACTION_TYPE);
+
+    // Set the read_only property for each field in the section
+    fieldsToDisable.forEach(field => {
+        frm.set_df_property(field, 'read_only', transactionType !== IN_TRANSACTION_TYPE);
+    });
+
+    // Make 'destination_cmr' and 'kirkuk_net_weight' mandatory if transactionType is "IN"
+    frm.set_df_property('destination_cmr', 'reqd', transactionType === IN_TRANSACTION_TYPE);
+    frm.set_df_property('kirkuk_net_weight', 'reqd', transactionType === IN_TRANSACTION_TYPE);
 }
+
+
 
 // Event handlers for the Loading Unloading Dispatch form
 frappe.ui.form.on('Loading Unloading Dispatch', {
@@ -138,6 +166,7 @@ frappe.ui.form.on('Loading Unloading Dispatch', {
     standard_weight_in_meters: function(frm) {
         calculate_normal_weight_in_meters(frm);
         calculate_difference_in_weight(frm);
+        calculate_weight_in_meters(frm); 
     },
     transaction_type: function(frm) {
         toggle_kirkuk_detail_section(frm);
@@ -147,7 +176,6 @@ frappe.ui.form.on('Loading Unloading Dispatch', {
         calculate_destination_weight_in_meters(frm);
         toggle_kirkuk_detail_section(frm);
         calculate_difference_in_weight(frm); // Calculate the difference whenever the form is refreshed
-        calculate_normal_weight_in_meters(frm);
     }
 });
 
