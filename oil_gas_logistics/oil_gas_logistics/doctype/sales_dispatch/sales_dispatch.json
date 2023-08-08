@@ -10,14 +10,12 @@
  "field_order": [
   "date",
   "customer_name",
-  "loading_location",
-  "unloading_location",
   "section_break_section",
   "sales_dispatch_details",
   "amended_from",
-  "total",
-  "total_section_break_section",
-  "total_qty"
+  "total_amount_for_sold_product",
+  "total_qty",
+  "transportation_cost"
  ],
  "fields": [
   {
@@ -30,16 +28,6 @@
    "fieldtype": "Link",
    "label": "Customer Name",
    "options": "Customer"
-  },
-  {
-   "fieldname": "loading_location",
-   "fieldtype": "Data",
-   "label": "Loading Location"
-  },
-  {
-   "fieldname": "unloading_location",
-   "fieldtype": "Data",
-   "label": "Unloading Location"
   },
   {
    "fieldname": "section_break_section",
@@ -62,25 +50,25 @@
    "read_only": 1
   },
   {
-   "fieldname": "total",
-   "fieldtype": "Data",
-   "label": "Total"
-  },
-  {
-   "fieldname": "total_section_break_section",
-   "fieldtype": "Section Break",
-   "label": "Total Section Break"
-  },
-  {
    "fieldname": "total_qty",
-   "fieldtype": "Currency",
+   "fieldtype": "Float",
    "label": "Total Quantity"
+  },
+  {
+   "fieldname": "total_amount_for_sold_product",
+   "fieldtype": "Currency",
+   "label": "Total Amount For Sold Product"
+  },
+  {
+   "fieldname": "transportation_cost",
+   "fieldtype": "Currency",
+   "label": "Transportation Cost"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-07-03 11:07:00.610212",
+ "modified": "2023-08-06 16:02:41.294655",
  "modified_by": "Administrator",
  "module": "Oil Gas Logistics",
  "name": "Sales Dispatch",
