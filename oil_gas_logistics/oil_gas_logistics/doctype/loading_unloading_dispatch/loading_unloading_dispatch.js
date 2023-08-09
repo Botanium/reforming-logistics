@@ -149,11 +149,13 @@ frappe.ui.form.on('Loading Unloading Dispatch', {
         toggle_kirkuk_detail_section(frm);
     },
     refresh: function(frm) {
+        toggle_kirkuk_detail_section(frm);
         // Call the required functions here to update visibility or other fields
         //calculate_destination_weight_in_meters(frm);
         //toggle_kirkuk_detail_section(frm);
         //calculate_difference_in_weight(frm); // Calculate the difference whenever the form is refreshed
     }
-});
+}
+);
 
 

@@ -9,10 +9,50 @@ frappe.ui.form.on('Sales Dispatch', {
             };
         };
     },
+
     //... rest of your code
+    density_type: function(frm) {
+        // Loop through each row in the "Sales Dispatch Details" table
+        $.each(frm.doc.sales_dispatch_details || [], function(i, row) {
+            if(frm.doc.density_type == "Normal") {
+                // Fetch the 'density' from the "Loading Unloading Dispatch" and set it in the 'Sales Dispatch Details'
+                frappe.db.get_value('Loading Unloading Dispatch', row.loading_unloading_dispatch, 'density', (r) => {
+                    frappe.model.set_value(row.doctype, row.name, 'density', r.density);
+                    calculate_liters(row);
+                });
+            } else if(frm.doc.density_type == "Standard") {
+                // Fetch the 'suli_standard_density' from the "Loading Unloading Dispatch" and set it in the 'Sales Dispatch Details'
+                frappe.db.get_value('Loading Unloading Dispatch', row.loading_unloading_dispatch, 'suli_standard_density', (r) => {
+                    frappe.model.set_value(row.doctype, row.name, 'density', r.suli_standard_density);
+                    calculate_liters(row);
+                });
+            }
+        });
+    }
+});
+;
+
+
+    
+
+frappe.ui.form.on('Sales Dispatch Details', {
+    density: function(frm, cdt, cdn) {
+        let row = locals[cdt][cdn];
+        calculate_liters(row);
+    },
+
+    qty: function(frm, cdt, cdn) {
+        let row = locals[cdt][cdn];
+        calculate_liters(row);
+    }
 });
 
-
+function calculate_liters(row) {
+    if(row.qty && row.density) {
+        let liters = row.qty / row.density;
+        frappe.model.set_value(row.doctype, row.name, 'liters', liters);
+    }
+}
 
 
 
