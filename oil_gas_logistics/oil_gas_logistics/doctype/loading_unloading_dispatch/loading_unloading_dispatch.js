@@ -108,6 +108,44 @@ function toggle_kirkuk_detail_section(frm) {
     frm.set_df_property('kirkuk_net_weight', 'reqd', transactionType === IN_TRANSACTION_TYPE);
 }
 
+// view attached image
+//frappe.ui.form.on('Loading Unloading Dispatch', {
+    // onload: function(frm) {
+    //     display_attached_images(frm);
+    // },
+    // refresh: function(frm) {
+    //     display_attached_images(frm);
+    // }
+    // after_save: function(frm) {
+    //     display_attached_images(frm);
+    // }
+//});
+
+
+// //view images
+// function display_attached_images(frm) {
+//     if (frm.doc.__islocal) {
+//         return;
+//     }
+
+//     frappe.call({
+//         method: 'oil_gas_logistics.loading_unloading_dispatch.get_attached_images', // Replace 'your_app_name' with the name of your app
+//         args: {
+//             docname: frm.doc.name
+//         },
+//         callback: function(r) {
+//             let image_html = "";
+//             (r.message || []).forEach(function(att) {
+//                 if (att.is_image) {
+//                     image_html += `<div style="margin: 15px 0;"><img src="${att.file_url}" style="max-width: 100%; height: auto;"></div>`;
+//                 }
+//             });
+            
+//             frm.fields_dict['attached_images_view'].wrapper.innerHTML = image_html;
+//         }
+//     });
+// }
+
 
 
 // Event handlers for the Loading Unloading Dispatch form
@@ -148,13 +186,25 @@ frappe.ui.form.on('Loading Unloading Dispatch', {
     transaction_type: function(frm) {
         toggle_kirkuk_detail_section(frm);
     },
+
+    onload: function(frm) {
+        display_attached_images(frm);
+    },
+
     refresh: function(frm) {
         toggle_kirkuk_detail_section(frm);
+        //display_attached_images(frm);
         // Call the required functions here to update visibility or other fields
         //calculate_destination_weight_in_meters(frm);
         //toggle_kirkuk_detail_section(frm);
         //calculate_difference_in_weight(frm); // Calculate the difference whenever the form is refreshed
-    }
+    },
+
+    after_save: function(frm) {
+        display_attached_images(frm);
+    },
+
+
 }
 );
 
