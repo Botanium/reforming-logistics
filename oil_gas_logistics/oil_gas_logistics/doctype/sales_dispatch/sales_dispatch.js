@@ -1,14 +1,50 @@
 frappe.ui.form.on('Sales Dispatch', {
+  
+
     onload: function(frm) {
         frm.fields_dict['sales_dispatch_details'].grid.get_field('loading_unloading_dispatch').get_query = function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
             return {
                 filters: {
                     'transaction_type': 'OUT',
-                    'docstatus': 1
+                    'docstatus': 1,
+                    'exit_date': row.date
                 }
             };
         };
     },
+
+
+    
+        date: function(frm) {
+            console.log("Date function triggered for Sales Dispatch");
+    
+            frappe.call({
+                method: "frappe.client.get_list",
+                args: {
+                    doctype: "Loading Unloading Dispatch",
+                    filters: {
+                        'transaction_type': 'OUT',
+                        'docstatus': 1,
+                        'exit_date': frm.doc.date
+                    },
+                    fields: ["name"],
+                },
+                callback: function(r) {
+                    console.log(r); // Log the response for debugging
+    
+                    if (r.message) {
+                        frm.clear_table("sales_dispatch_details");
+    
+                        r.message.forEach(function(entry) {
+                            let child_row = frm.add_child("sales_dispatch_details");
+                            child_row.loading_unloading_dispatch = entry.name;
+                        });
+                        frm.refresh_field("sales_dispatch_details");
+                    }
+                }
+            });
+        },
 
     density_type: function(frm) {
         // Loop through each row in the "Sales Dispatch Details" table
@@ -108,62 +144,3 @@ function calculate_totals(frm) {
     frm.set_value('total_qty', total_qty);
     frm.set_value('transportation_cost', total_transportation_cost);
 }
-
-// frappe.ui.form.on('Sales Dispatch', {
-//     onload: function(frm) {
-//         frm.fields_dict['sales_dispatch_details'].grid.get_field('loading_unloading_dispatch').get_query = function(doc, cdt, cdn) {
-//             return {
-//                 filters: {
-//                     'transaction_type': 'OUT',
-//                     'docstatus': 1
-//                 }
-//             };
-//         };
-//     },
-
-//     //... rest of your code
-//     density_type: function(frm) {
-//         // Loop through each row in the "Sales Dispatch Details" table
-//         $.each(frm.doc.sales_dispatch_details || [], function(i, row) {
-//             if(frm.doc.density_type == "Normal") {
-//                 // Fetch the 'density' from the "Loading Unloading Dispatch" and set it in the 'Sales Dispatch Details'
-//                 frappe.db.get_value('Loading Unloading Dispatch', row.loading_unloading_dispatch, 'density', (r) => {
-//                     frappe.model.set_value(row.doctype, row.name, 'density', r.density);
-//                     calculate_liters(row);
-//                 });
-//             } else if(frm.doc.density_type == "Standard") {
-//                 // Fetch the 'suli_standard_density' from the "Loading Unloading Dispatch" and set it in the 'Sales Dispatch Details'
-//                 frappe.db.get_value('Loading Unloading Dispatch', row.loading_unloading_dispatch, 'suli_standard_density', (r) => {
-//                     frappe.model.set_value(row.doctype, row.name, 'density', r.suli_standard_density);
-//                     calculate_liters(row);
-//                 });
-//             }
-//         });
-//     }
-// });
-
-
-
-    
-
-// frappe.ui.form.on('Sales Dispatch Details', {
-//     density: function(frm, cdt, cdn) {
-//         let row = locals[cdt][cdn];
-//         calculate_liters(row);
-//     },
-
-//     qty: function(frm, cdt, cdn) {
-//         let row = locals[cdt][cdn];
-//         calculate_liters(row);
-//     }
-// });
-
-// function calculate_liters(row) {
-//     if(row.qty && row.density) {
-//         let liters = row.qty / row.density;
-//         frappe.model.set_value(row.doctype, row.name, 'liters', liters);
-//     }
-// }
-
-
-

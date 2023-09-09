@@ -1,16 +1,6 @@
 // Define constants
 const IN_TRANSACTION_TYPE = 'IN';
 
-// Function to calculate net product weight
-// function calculate_product_net_weight(frm) {
-//     const truck_weight = parseFloat(frm.doc.truck_weight) || 0;
-//     const total_weight = parseFloat(frm.doc.total_weight_of_truck_and_product) || 0;
-//     const product_net_weight = total_weight - truck_weight;
-
-//     frm.set_value('product_net_weight', product_net_weight);
-//     frm.refresh_field('product_net_weight');
-// }
-
 // Function to calculate the difference in weight
 function calculate_difference_in_weight(frm) {
     const product_net_weight = parseFloat(frm.doc.product_net_weight) || 0;
@@ -108,43 +98,6 @@ function toggle_kirkuk_detail_section(frm) {
     frm.set_df_property('kirkuk_net_weight', 'reqd', transactionType === IN_TRANSACTION_TYPE);
 }
 
-// view attached image
-//frappe.ui.form.on('Loading Unloading Dispatch', {
-    // onload: function(frm) {
-    //     display_attached_images(frm);
-    // },
-    // refresh: function(frm) {
-    //     display_attached_images(frm);
-    // }
-    // after_save: function(frm) {
-    //     display_attached_images(frm);
-    // }
-//});
-
-
-// //view images
-// function display_attached_images(frm) {
-//     if (frm.doc.__islocal) {
-//         return;
-//     }
-
-//     frappe.call({
-//         method: 'oil_gas_logistics.loading_unloading_dispatch.get_attached_images', // Replace 'your_app_name' with the name of your app
-//         args: {
-//             docname: frm.doc.name
-//         },
-//         callback: function(r) {
-//             let image_html = "";
-//             (r.message || []).forEach(function(att) {
-//                 if (att.is_image) {
-//                     image_html += `<div style="margin: 15px 0;"><img src="${att.file_url}" style="max-width: 100%; height: auto;"></div>`;
-//                 }
-//             });
-            
-//             frm.fields_dict['attached_images_view'].wrapper.innerHTML = image_html;
-//         }
-//     });
-// }
 
 
 
