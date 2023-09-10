@@ -15,37 +15,56 @@ frappe.ui.form.on('Sales Dispatch', {
     },
 
 
+    date: function(frm) {
+        console.log("Date function triggered for Sales Dispatch");
     
-        date: function(frm) {
-            console.log("Date function triggered for Sales Dispatch");
-    
-            frappe.call({
-                method: "frappe.client.get_list",
-                args: {
-                    doctype: "Loading Unloading Dispatch",
-                    filters: {
-                        'transaction_type': 'OUT',
-                        'docstatus': 1,
-                        'exit_date': frm.doc.date
-                    },
-                    fields: ["name"],
+        // Fetch list of Loading Unloading Dispatch based on filters
+        frappe.call({
+            method: "frappe.client.get_list",
+            args: {
+                doctype: "Loading Unloading Dispatch",
+                filters: {
+                    'transaction_type': 'OUT',
+                    'docstatus': 1,
+                    'exit_date': frm.doc.date
                 },
-                callback: function(r) {
-                    console.log(r); // Log the response for debugging
+                fields: ["name"]  // We only need names here since we will fetch full docs later
+            },
+            callback: function(r) {
+                console.log(r); // Log the response for debugging
     
-                    if (r.message) {
-                        frm.clear_table("sales_dispatch_details");
+                if (r.message) {
+                    frm.clear_table("sales_dispatch_details");
     
-                        r.message.forEach(function(entry) {
+                    // Iterate over each "Loading Unloading Dispatch" name returned
+                    r.message.forEach(function(entry) {
+                        // Fetch the entire document based on its name
+                        frappe.model.with_doc("Loading Unloading Dispatch", entry.name, function() {
+                            let lud_doc = frappe.model.get_doc("Loading Unloading Dispatch", entry.name);
+                            
                             let child_row = frm.add_child("sales_dispatch_details");
-                            child_row.loading_unloading_dispatch = entry.name;
+                            child_row.loading_unloading_dispatch = lud_doc.name;
+                            child_row.truck = lud_doc.truck;
+                            child_row.product = lud_doc.product;
+                            child_row.qty = lud_doc.product_net_weight;  // Ensure this field is named correctly in both Doctypes
+                            child_row.density = lud_doc.density;
+                            calculate_liters(child_row); // Calculate liters after setting qty and density
+                            child_row.price = lud_doc.price;
+                            child_row.amount = lud_doc.amount;
+                            child_row.transportation_price = lud_doc.transportation_price;
+                            child_row.bill_no = lud_doc.bill_no;
+                            child_row.loadding_time = lud_doc.loadding_time;
+                            child_row.date = lud_doc.date;
+    
+                            frm.refresh_field("sales_dispatch_details");
                         });
-                        frm.refresh_field("sales_dispatch_details");
-                    }
+                    });
                 }
-            });
-        },
-
+            }
+        });
+    },
+    
+    
     density_type: function(frm) {
         // Loop through each row in the "Sales Dispatch Details" table
         $.each(frm.doc.sales_dispatch_details || [], function(i, row) {
