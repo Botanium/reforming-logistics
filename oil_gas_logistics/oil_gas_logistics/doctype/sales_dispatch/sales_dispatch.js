@@ -80,9 +80,16 @@ frappe.ui.form.on('Sales Dispatch', {
                     frappe.model.set_value(row.doctype, row.name, 'density', r.suli_standard_density);
                     calculate_liters(row);
                 });
+            } else if(frm.doc.density_type == "Average") {  // Added condition for "Average"
+                // Fetch the 'average_density' from the "Loading Unloading Dispatch" and set it in the 'Sales Dispatch Details'
+                frappe.db.get_value('Loading Unloading Dispatch', row.loading_unloading_dispatch, 'average_density', (r) => {
+                    frappe.model.set_value(row.doctype, row.name, 'density', r.average_density);
+                    calculate_liters(row);
+                });
             }
         });
     },
+    
 
     refresh: function(frm) {
         // Recalculate totals on form load or refresh
