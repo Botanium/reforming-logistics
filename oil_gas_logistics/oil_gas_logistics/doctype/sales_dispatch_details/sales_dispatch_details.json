@@ -116,6 +116,7 @@
    "label": "Customer"
   },
   {
+   "default": "IQD",
    "fieldname": "currency",
    "fieldtype": "Select",
    "label": "Currency",
@@ -125,7 +126,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-09-11 14:10:26.947083",
+ "modified": "2023-09-11 16:06:32.322563",
  "modified_by": "Administrator",
  "module": "Oil Gas Logistics",
  "name": "Sales Dispatch Details",
