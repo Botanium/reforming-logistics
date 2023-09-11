@@ -17,7 +17,8 @@
   "transportation_price",
   "bill_no",
   "loading_time",
-  "date"
+  "date",
+  "customer"
  ],
  "fields": [
   {
@@ -106,12 +107,18 @@
    "fieldtype": "Date",
    "label": "Date",
    "read_only": 1
+  },
+  {
+   "fetch_from": "loading_unloading_dispatch.unloading_location",
+   "fieldname": "customer",
+   "fieldtype": "Data",
+   "label": "Customer"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-09-04 10:14:29.852320",
+ "modified": "2023-09-11 10:55:41.175325",
  "modified_by": "Administrator",
  "module": "Oil Gas Logistics",
  "name": "Sales Dispatch Details",

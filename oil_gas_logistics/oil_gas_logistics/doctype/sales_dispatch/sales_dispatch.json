@@ -9,7 +9,6 @@
  "engine": "InnoDB",
  "field_order": [
   "date",
-  "customer_name",
   "density_type",
   "section_break_section",
   "sales_dispatch_details",
@@ -27,14 +26,6 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Date",
-   "reqd": 1
-  },
-  {
-   "fieldname": "customer_name",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Customer Name",
-   "options": "Customer",
    "reqd": 1
   },
   {
@@ -90,7 +81,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-09-10 14:18:31.713845",
+ "modified": "2023-09-11 10:54:39.602550",
  "modified_by": "Administrator",
  "module": "Oil Gas Logistics",
  "name": "Sales Dispatch",

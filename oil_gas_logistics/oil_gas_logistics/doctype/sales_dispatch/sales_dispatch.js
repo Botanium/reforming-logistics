@@ -55,6 +55,7 @@ frappe.ui.form.on('Sales Dispatch', {
                             child_row.bill_no = lud_doc.bill_no;
                             child_row.loadding_time = lud_doc.loadding_time;
                             child_row.date = lud_doc.date;
+                            child_row.customer = lud_doc.unloading_location;
     
                             frm.refresh_field("sales_dispatch_details");
                         });
