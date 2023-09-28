@@ -18,6 +18,9 @@
   "total_weight_of_truck_and_product",
   "column_break_5gxtg",
   "truck",
+  "truck_plate_number_number",
+  "truck_driver_name",
+  "truck_plate_city",
   "entry_date_and_time",
   "exit_date_and_time",
   "kirkuk_detail_section_section",
@@ -230,6 +233,7 @@
    "label": "Net Weight in Tonne"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "destination_weight_in_meters",
    "fieldtype": "Data",
    "label": "Destination weight in Meters"
@@ -284,12 +288,33 @@
    "fieldtype": "Float",
    "label": "Average Density",
    "precision": "4"
+  },
+  {
+   "fetch_from": "truck.plate_number",
+   "fieldname": "truck_plate_number_number",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Truck Plate Number Number"
+  },
+  {
+   "fetch_from": "truck.driver_name",
+   "fieldname": "truck_driver_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Truck Driver Name"
+  },
+  {
+   "fetch_from": "truck.city",
+   "fieldname": "truck_plate_city",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Truck Plate City"
   }
  ],
  "is_submittable": 1,
  "links": [],
  "make_attachments_public": 1,
- "modified": "2023-09-17 09:35:05.034992",
+ "modified": "2023-09-28 13:30:32.505914",
  "modified_by": "Administrator",
  "module": "Oil Gas Logistics",
  "name": "Loading Unloading Dispatch",
