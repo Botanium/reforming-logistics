@@ -13,7 +13,7 @@ class LoadingUnloadingDispatch(Document):
         self.calculate_difference_in_weight()
         self.calculate_net_weight_in_tonne()
         self.calculate_destination_weight_in_tonne()
-        self.calculate_destination_weight_in_meters()
+        #self.calculate_destination_weight_in_meters()
         self.calculate_weight_in_meters()
         self.calculate_normal_weight_in_meters()
         self.calculate_average_density()
@@ -40,10 +40,10 @@ class LoadingUnloadingDispatch(Document):
         kirkuk_net_weight = float(self.kirkuk_net_weight) if self.kirkuk_net_weight else 0
         self.destination_weight_in_tonne = kirkuk_net_weight / 1000
 
-    def calculate_destination_weight_in_meters(self):
-        kirkuk_net_weight = float(self.kirkuk_net_weight) if self.kirkuk_net_weight else 0
-        kirkuk_standard_density = float(self.kirkuk_standard_density) if self.kirkuk_standard_density else 0
-        self.destination_weight_in_meters = (kirkuk_net_weight / 1000) / kirkuk_standard_density if kirkuk_standard_density != 0 else 0
+    # def calculate_destination_weight_in_meters(self):
+    #     kirkuk_net_weight = float(self.kirkuk_net_weight) if self.kirkuk_net_weight else 0
+    #     kirkuk_standard_density = float(self.kirkuk_standard_density) if self.kirkuk_standard_density else 0
+    #     self.destination_weight_in_meters = (kirkuk_net_weight / 1000) / kirkuk_standard_density if kirkuk_standard_density != 0 else 0
 
     def calculate_weight_in_meters(self):
         product_net_weight = float(self.product_net_weight) if self.product_net_weight else 0
