@@ -30,14 +30,14 @@ function calculate_destination_weight_in_tonne(frm) {
 }
 
 // Function to calculate destination weight in meters
-function calculate_destination_weight_in_meters(frm) {
-    const kirkuk_net_weight = parseFloat(frm.doc.kirkuk_net_weight) || 0;
-    const kirkuk_standard_density = parseFloat(frm.doc.kirkuk_standard_density) || 0;
-    const destination_weight_in_meters = (kirkuk_net_weight / 1000) / kirkuk_standard_density;
+// function calculate_destination_weight_in_meters(frm) {
+//     const kirkuk_net_weight = parseFloat(frm.doc.kirkuk_net_weight) || 0;
+//     const kirkuk_standard_density = parseFloat(frm.doc.kirkuk_standard_density) || 0;
+//     const destination_weight_in_meters = (kirkuk_net_weight / 1000) / kirkuk_standard_density;
 
-    //frm.set_value('destination_weight_in_meters', destination_weight_in_meters);
-    //frm.refresh_field('destination_weight_in_meters');
-}
+//     //frm.set_value('destination_weight_in_meters', destination_weight_in_meters);
+//     //frm.refresh_field('destination_weight_in_meters');
+// }
 
 
 
