@@ -29,15 +29,15 @@ function calculate_destination_weight_in_tonne(frm) {
     frm.refresh_field('destination_weight_in_tonne');
 }
 
-// // Function to calculate destination weight in meters
-// function calculate_destination_weight_in_meters(frm) {
-//     const kirkuk_net_weight = parseFloat(frm.doc.kirkuk_net_weight) || 0;
-//     const kirkuk_standard_density = parseFloat(frm.doc.kirkuk_standard_density) || 0;
-//     const destination_weight_in_meters = (kirkuk_net_weight / 1000) / kirkuk_standard_density;
+// Function to calculate destination weight in meters
+function calculate_destination_weight_in_meters(frm) {
+    const kirkuk_net_weight = parseFloat(frm.doc.kirkuk_net_weight) || 0;
+    const kirkuk_standard_density = parseFloat(frm.doc.kirkuk_standard_density) || 0;
+    const destination_weight_in_meters = (kirkuk_net_weight / 1000) / kirkuk_standard_density;
 
-//     frm.set_value('destination_weight_in_meters', destination_weight_in_meters);
-//     frm.refresh_field('destination_weight_in_meters');
-// }
+    frm.set_value('destination_weight_in_meters', destination_weight_in_meters);
+    frm.refresh_field('destination_weight_in_meters');
+}
 
 
 
@@ -111,12 +111,12 @@ frappe.ui.form.on('Loading Unloading Dispatch', {
         calculate_normal_weight_in_meters(frm);
     },
     kirkuk_net_weight: function(frm) {
-        //calculate_destination_weight_in_tonne(frm);
+        calculate_destination_weight_in_tonne(frm);
         calculate_difference_in_weight(frm);
         calculate_normal_weight_in_meters(frm);
     },
     kirkuk_standard_density: function(frm) {
-        //calculate_destination_weight_in_meters(frm);
+        calculate_destination_weight_in_meters(frm);
         calculate_difference_in_weight(frm);
         calculate_normal_weight_in_meters(frm);
     },
